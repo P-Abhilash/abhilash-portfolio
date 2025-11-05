@@ -137,7 +137,8 @@
   *,
   *::before,
   *::after {
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+      color 0.3s ease;
   }
 
   /* Disable transitions on theme toggle to avoid flash */
@@ -147,17 +148,28 @@
 
   /* Custom animations for hero section */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
   }
 
   @keyframes glow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 
   @keyframes gradient-x {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateX(0%);
     }
     50% {
@@ -210,11 +222,21 @@
     animation: fade-in-up 0.8s ease-out forwards;
   }
 
-  .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
-  .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
-  .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
-  .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
-  .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-animation > *:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .stagger-animation > *:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .stagger-animation > *:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .stagger-animation > *:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .stagger-animation > *:nth-child(5) {
+    animation-delay: 0.5s;
+  }
 }
 
 /**
@@ -274,4 +296,69 @@
 
 html {
   font-size: var(--font-size);
+}
+
+/* 🔧 Force-enable bullet points for Experience section */
+#experience ul {
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  margin-left: 1.5rem !important;
+  /* padding-left: 1rem !important; */
+}
+
+#experience li {
+  display: list-item !important;
+  margin-bottom: 0.4rem;
+}
+
+#experience li::marker {
+  color: var(--muted-foreground) !important;
+}
+
+/* --- Contact Form Button Hover & Click Effects --- */
+button[type="submit"] {
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--primary);
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
+  filter: brightness(0.95);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.hero-section {
+  margin-top: 20px;
+}
+
+@media (width <= 64rem) {
+  .hero-section {
+    margin-top: 80px;
+  }
+}
+
+@media (width <= 64rem) {
+  .stats {
+    justify-content: space-between;
+  }
+}
+
+.stats {
+  justify-content: space-around;
+}
+
+.profile-img {
+  margin-top: -80px;
+  /* transform: scale(0.9); */
+  transform-origin: center;
 }

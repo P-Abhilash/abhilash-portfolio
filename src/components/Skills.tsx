@@ -7,53 +7,87 @@ export function Skills() {
     {
       icon: Code,
       title: "Programming Languages",
-      skills: ["JavaScript", "TypeScript", "SQL", "PHP", "HCL"]
-    },
-    {
-      icon: Settings,
-      title: "DevOps & Tools",
-      skills: ["Docker", "Git", "VIM", "NeoVim", "Kubernetes", "Agile", "CI/CD with Jenkins", "Terraform"]
-    },
-    {
-      icon: Globe,
-      title: "JavaScript Libraries & Frameworks",
-      skills: ["Node.js", "React.js", "Bun.js", "Deno", "Vanilla JS", "Next.js"]
-    },
-    {
-      icon: Database,
-      title: "Web Frameworks",
-      skills: ["Express.js", "Fastify"]
+      skills: ["Java", "Python", "JavaScript", "TypeScript", "C"],
     },
     {
       icon: Cloud,
+      title: "DevOps & Tools",
+      skills: [
+        "AWS",
+        "GCP",
+        "Render",
+        "Docker",
+        "Git",
+        "VIM",
+        "Kubernetes",
+        "CI/CD",
+        "Terraform",
+      ],
+    },
+    {
+      icon: Settings,
+      title: "Frameworks & Libraries",
+      skills: [
+        "Spring Boot",
+        "Node.js",
+        "React.js",
+        "Django",
+        "FastAPI",
+        "Bootstrap",
+        "React Native",
+        "Vanilla JS",
+      ],
+    },
+    {
+      icon: Database,
+      title: "Databases",
+      skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+    },
+    {
+      icon: Globe,
       title: "Backend as a Service",
-      skills: ["Firebase", "Appwrite"]
+      skills: ["Firebase", "Supabase"],
     },
     {
       icon: TestTube,
-      title: "Testing",
-      skills: ["Jest"]
-    }
+      title: "Testing & Security",
+      skills: [
+        "JUnit",
+        "Selenium",
+        "Cucumber",
+        "Gatling",
+        "BlazeMeter",
+        "Jest",
+      ],
+    },
   ];
 
   return (
-    <section className="py-20 px-4 bg-secondary/5">
+    <section id="skills" className="py-20 px-4 bg-secondary/5">
       <div className="max-w-6xl mx-auto">
+        {/* Section Title */}
         <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl">Technical Skills</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold">
+            Technical Skills
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive expertise across modern development stack with focus on 
-            scalable web applications and DevOps practices.
+            Comprehensive expertise across full-stack development, automation,
+            and cloud platforms with a focus on scalability, security, and
+            performance optimization.
           </p>
         </div>
-        
+
+        {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <Card key={index} className="h-full">
+              <Card
+                key={index}
+                className="border border-primary/10 hover:border-primary/30 transition-colors h-full shadow-md hover:shadow-lg"
+              >
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
+                  <CardTitle className="flex items-center gap-3 text-lg">
                     <IconComponent className="h-5 w-5 text-primary" />
                     {category.title}
                   </CardTitle>
@@ -61,7 +95,11 @@ export function Skills() {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="secondary">
+                      <Badge
+                        key={skillIndex}
+                        variant="secondary"
+                        className="text-sm px-3 py-1"
+                      >
                         {skill}
                       </Badge>
                     ))}

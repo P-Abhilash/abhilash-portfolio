@@ -5,49 +5,85 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 export function Experience() {
   const experiences = [
     {
-      title: "Senior Software Engineer",
-      company: "Tech Solutions Inc.",
-      location: "Remote",
-      period: "2022 - Present",
-      description: "Lead full-stack development projects using React, Node.js, and TypeScript. Implemented CI/CD pipelines with Jenkins and managed containerized applications with Docker and Kubernetes.",
-      technologies: ["React", "Node.js", "TypeScript", "Docker", "Kubernetes", "Jenkins"]
+      title: "Software Engineer I",
+      company: "NCR Voyix",
+      location: "Hyderabad, India",
+      period: "Jul 2022 – Dec 2023",
+      description: [
+        "Contributed to NCR’s Customer Marketing Loyalty Solution, a cloud-based multitenant platform powering real-time rewards, discounts, and loyalty management at POS.",
+        "Engineered scalable microservices with Spring Boot, Node.js, and GCP, boosting system throughput from hundreds → thousands of requests per second.",
+        "Enhanced code quality by refactoring services and increasing Sonar coverage from 85% → 92% with 100+ new tests.",
+        "Performed load/stress testing with Gatling & BlazeMeter, reducing response times by 20% and improving scalability.",
+      ],
+      technologies: [
+        "Java",
+        "Spring Boot",
+        "JavaScript",
+        "TypeScript",
+        "Node.js",
+        "React.js",
+        "GCP",
+        "Docker",
+        "CI/CD",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "Gatling",
+        "BlazeMeter",
+        "Selenium",
+        "Cucumber",
+        "JUnit",
+      ],
     },
     {
-      title: "Full Stack Developer",
-      company: "Digital Innovations Ltd.",
-      location: "New York, NY",
-      period: "2020 - 2022",
-      description: "Developed and maintained web applications using modern JavaScript frameworks. Collaborated with DevOps team to implement automated deployment processes and infrastructure as code with Terraform.",
-      technologies: ["JavaScript", "Express.js", "Firebase", "Terraform", "Git"]
+      title: "Software Intern",
+      company: "NCR Voyix",
+      location: "Hyderabad, India",
+      period: "Jan 2022 – Jun 2022",
+      description: [
+        "Assisted in building Java Spring Boot microservices and integrating REST APIs for enterprise applications. Gained hands-on experience with cloud deployments on GCP and Agile development practices.",
+        "Supported feature development, testing, and debugging to improve product reliability.",
+      ],
+      technologies: [
+        "Spring Boot",
+        "C++ (Qt)",
+        "Java",
+        "JUnit",
+        "Jenkins",
+        "PostgreSQL",
+        "MongoDB",
+        "Agile",
+        "GCP",
+      ],
     },
-    {
-      title: "Software Developer",
-      company: "StartupCorp",
-      location: "San Francisco, CA",
-      period: "2019 - 2020",
-      description: "Built responsive web applications and RESTful APIs. Worked with cross-functional teams using Agile methodologies to deliver high-quality software solutions.",
-      technologies: ["PHP", "JavaScript", "SQL", "Jest", "Agile"]
-    }
   ];
 
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
+    <section id="experience" className="py-20 px-4 bg-secondary/5">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
         <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl">Professional Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold">
+            Professional Experience
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Over 5 years of experience building scalable web applications and 
-            leading development teams in fast-paced environments.
+            Proven track record of building scalable enterprise applications,
+            optimizing performance, and delivering secure, cloud-native
+            solutions across the software lifecycle.
           </p>
         </div>
-        
+
+        {/* Experience Cards */}
         <div className="space-y-6">
           {experiences.map((exp, index) => (
-            <Card key={index}>
+            <Card
+              key={index}
+              className="border border-primary/10 hover:border-primary/30 transition-colors shadow-md hover:shadow-lg rounded-2xl"
+            >
               <CardHeader>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div>
-                    <CardTitle className="flex items-center gap-2">
+                    <CardTitle className="flex items-center gap-2 text-lg">
                       <Briefcase className="h-5 w-5 text-primary" />
                       {exp.title}
                     </CardTitle>
@@ -65,11 +101,23 @@ export function Experience() {
                   </div>
                 </div>
               </CardHeader>
+
+              {/* Description as bullet points */}
               <CardContent>
-                <p className="text-muted-foreground mb-4">{exp.description}</p>
+                <ul className="list-disc list-outside ml-5 text-muted-foreground space-y-2 mb-4">
+                  {exp.description.map((point, i) => (
+                    <li key={i} className="leading-relaxed">
+                      {point}
+                    </li>
+                  ))}
+                </ul>
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="outline">
+                    <Badge
+                      key={techIndex}
+                      variant="secondary"
+                      className="text-sm px-3 py-1"
+                    >
                       {tech}
                     </Badge>
                   ))}
