@@ -139,7 +139,7 @@ export function Hero() {
               <div className="relative z-10 group move-up">
                 <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 backdrop-blur-sm border-4 border-background/50 shadow-2xl">
                   <ImageWithFallback
-                    src="./public/profile.png"
+                    src="/profile.png"
                     alt="Abhilash Pannala"
                     className="w-full h-auto object-contain transition-transform duration-500 profile-img"
                   />
